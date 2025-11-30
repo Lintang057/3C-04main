@@ -1,7 +1,7 @@
 // lib/pages/login_page.dart
 import 'package:flutter/material.dart';
 import 'signup_page.dart';
-import 'menu_page.dart';
+import 'menu_premium_page.dart';
 import '../widgets/social_buttons.dart';
 
 class LoginPage extends StatefulWidget {
@@ -35,12 +35,12 @@ class _LoginPageState extends State<LoginPage> {
   // **Navigasi langsung** — gunakan route name yang terdaftar
   if (!mounted) return;
   try {
-    Navigator.pushReplacementNamed(context, MenuPage.routeName);
+    Navigator.pushReplacementNamed(context, MenuPremiumPage.routeName);
   } catch (e) {
     // fallback: langsung push widget supaya kita tahu apakah routeName bermasalah
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => const MenuPage()),
+      MaterialPageRoute(builder: (_) => const MenuPremiumPage()),
     );
   }
 }

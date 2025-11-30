@@ -6,7 +6,6 @@ import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/home_page.dart';
 import 'pages/cover_page.dart';
-import 'pages/menu_page.dart';
 import 'pages/product_page.dart';
 import 'pages/cart_page.dart';
 import 'providers/cart_provider.dart';
@@ -36,7 +35,6 @@ class MyApp extends StatelessWidget {
         SignUpPage.routeName: (_) => const SignUpPage(),
         HomePage.routeName: (_) => const HomePage(),
         CoverPage.routeName: (_) => const CoverPage(),
-        MenuPage.routeName: (_) => const MenuPage(),
         ProductsPage.routeName: (_) => const ProductsPage(),
         CartPage.routeName: (_) => const CartPage(),
         MenuPremiumPage.routeName: (_) => const MenuPremiumPage(),
