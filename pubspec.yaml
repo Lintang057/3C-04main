@@ -29,6 +29,11 @@ flutter:
     - assets/image/croissant.jpeg
     - assets/image/bread.jpeg
     - assets/image/cupcake.jpeg
+    - assets/image/donut_pingkan.png
+    - assets/image/french_toast.png
+    - assets/image/cowboy_cookie.png
+    - assets/image/matcha_cookie.png
+    - assets/image/bruno_donut.png
     # atau jika Anda ingin mendaftarkan seluruh folder:
     - assets/image/
 

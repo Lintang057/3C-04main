@@ -1,16 +1,25 @@
+// lib/main.dart
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
 import 'pages/home_page.dart';
 import 'pages/cover_page.dart';
-import 'pages/menu_page.dart' ;
+import 'pages/menu_page.dart';
 import 'pages/product_page.dart';
 import 'pages/cart_page.dart';
-import 'package:provider/provider.dart';
 import 'providers/cart_provider.dart';
+import 'pages/menu_premium_page.dart';
 
-
-void main() => runApp(const MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CartProvider(),
+      child: const MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-            title: 'Demo Login Per Halaman',
+      title: 'Demo Login Per Halaman',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       initialRoute: LoginPage.routeName,
@@ -27,21 +36,11 @@ class MyApp extends StatelessWidget {
         SignUpPage.routeName: (_) => const SignUpPage(),
         HomePage.routeName: (_) => const HomePage(),
         CoverPage.routeName: (_) => const CoverPage(),
-        MenuPage.routeName: (context) => const MenuPage(),
-        ProductsPage.routeName: (context) => const ProductsPage(),
-        CartPage.routeName: (context) => const CartPage(),
-  // ...
-
+        MenuPage.routeName: (_) => const MenuPage(),
+        ProductsPage.routeName: (_) => const ProductsPage(),
+        CartPage.routeName: (_) => const CartPage(),
+        MenuPremiumPage.routeName: (_) => const MenuPremiumPage(),
       },
     );
   }
-    void main() {
-    runApp(
-    ChangeNotifierProvider(
-      create: (_) => CartProvider(),
-      child: const MyApp(),
-    ),
-  );
 }
-  }
-

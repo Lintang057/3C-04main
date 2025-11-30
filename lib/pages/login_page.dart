@@ -27,22 +27,24 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _onLogin() async {
-    if (!(_formKey.currentState?.validate() ?? false)) return;
-    setState(() => _loading = true);
-    await Future.delayed(const Duration(seconds: 1)); // demo delay
-    setState(() => _loading = false);
+  if (!(_formKey.currentState?.validate() ?? false)) return;
+  setState(() => _loading = true);
+  await Future.delayed(const Duration(milliseconds: 600));
+  setState(() => _loading = false);
 
-    // Demo akun: user@example.com / Password123
-    if (_emailCtrl.text.trim() == 'user@example.com' &&
-        _passCtrl.text == 'Password123') {
-      if (!mounted) return;
-      Navigator.pushReplacementNamed(context, MenuPage.routeName);
-    } else {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Email atau password salah')));
-    }
+  // **Navigasi langsung** — gunakan route name yang terdaftar
+  if (!mounted) return;
+  try {
+    Navigator.pushReplacementNamed(context, MenuPage.routeName);
+  } catch (e) {
+    // fallback: langsung push widget supaya kita tahu apakah routeName bermasalah
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => const MenuPage()),
+    );
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
