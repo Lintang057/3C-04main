@@ -28,7 +28,6 @@ class MenuPremiumPage extends StatefulWidget {
 }
 
 class _MenuPremiumPageState extends State<MenuPremiumPage> {
-  // Products extracted from your PDF (names/descriptions sourced from your file). :contentReference[oaicite:2]{index=2}
   final List<Product> products = [
     Product(
       id: 'p1',
@@ -140,7 +139,7 @@ class _MenuPremiumPageState extends State<MenuPremiumPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
-                            Text('A Bakery’s — Artisan & Fresh', style: TextStyle(fontWeight: FontWeight.w700)),
+                            Text('A Bakery’s — Cake & Bread', style: TextStyle(fontWeight: FontWeight.w700)),
                             SizedBox(height: 4),
                             Text('Selalu fresh • Menu eksklusif • Pesan antar kilat', style: TextStyle(color: Colors.black54, fontSize: 12)),
                           ],
@@ -205,20 +204,13 @@ class _MenuPremiumPageState extends State<MenuPremiumPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween, // sesuai permintaan pakai MainAxisAlignment
                           children: [
                             // gambar
-                            ClipRRect(
-                              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-                              child: Image.asset(
+                            Image.asset(
                                 p.image,
-                                height: 120,
-                                width: double.infinity,
+                      
+                               
                                 fit: BoxFit.cover,
-                                errorBuilder: (_, __, ___) => Container(
-                                  height: 120,
-                                  color: const Color(0xFFEFCCA5),
-                                  child: const Center(child: Icon(Icons.cake, size: 48, color: Colors.white)),
-                                ),
+                            
                               ),
-                            ),
 
                             // teks & tombol
                             Padding(
