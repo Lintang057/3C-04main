@@ -1,4 +1,3 @@
-// lib/pages/login_page.dart
 import 'package:flutter/material.dart';
 import 'signup_page.dart';
 import 'menu_premium_page.dart';
@@ -27,24 +26,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _onLogin() async {
-  if (!(_formKey.currentState?.validate() ?? false)) return;
-  setState(() => _loading = true);
-  await Future.delayed(const Duration(milliseconds: 600));
-  setState(() => _loading = false);
+    if (!(_formKey.currentState?.validate() ?? false)) return;
 
-  // **Navigasi langsung** — gunakan route name yang terdaftar
-  if (!mounted) return;
-  try {
-    Navigator.pushReplacementNamed(context, MenuPremiumPage.routeName);
-  } catch (e) {
-    // fallback: langsung push widget supaya kita tahu apakah routeName bermasalah
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (_) => const MenuPremiumPage()),
-    );
+    setState(() => _loading = true);
+    await Future.delayed(const Duration(milliseconds: 600));
+    setState(() => _loading = false);
+
+    Navigator.pushReplacementNamed(context, '/main');
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,16 +49,22 @@ class _LoginPageState extends State<LoginPage> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    Image.asset('assets/image/logo.png', width: 120, height: 120, errorBuilder: (_, __, ___) => const FlutterLogo(size: 120)),
+                    Image.asset(
+                      'assets/image/logo.png',
+                      width: 120,
+                      height: 120,
+                      errorBuilder: (_, __, ___) => const FlutterLogo(size: 120),
+                    ),
                     const SizedBox(height: 20),
-                    const Text('Log in',
-                        style: TextStyle(
-                            fontSize: 34,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xFF4E2F28))), // dark brown
+                    const Text(
+                      'Log in',
+                      style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFF4E2F28),
+                      ),
+                    ),
                     const SizedBox(height: 20),
-
-                    // Card
                     Card(
                       shape: RoundedRectangleBorder(borderRadius: radius),
                       elevation: 4,
@@ -77,7 +72,6 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.all(18),
                         child: Column(
                           children: [
-                            // Email
                             TextFormField(
                               controller: _emailCtrl,
                               keyboardType: TextInputType.emailAddress,
@@ -93,8 +87,6 @@ class _LoginPageState extends State<LoginPage> {
                               },
                             ),
                             const SizedBox(height: 12),
-
-                            // Password
                             TextFormField(
                               controller: _passCtrl,
                               obscureText: _obscure,
@@ -114,8 +106,6 @@ class _LoginPageState extends State<LoginPage> {
                               },
                             ),
                             const SizedBox(height: 8),
-
-                            // Forgot right-aligned
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -129,33 +119,25 @@ class _LoginPageState extends State<LoginPage> {
                                 )
                               ],
                             ),
-
                             const SizedBox(height: 6),
                             SizedBox(
                               width: double.infinity,
                               height: 50,
                               child: ElevatedButton(
                                 onPressed: _loading ? null : _onLogin,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color.fromARGB(255, 184, 105, 84),
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                                ),
                                 child: _loading
                                     ? const SizedBox(
                                         width: 20,
                                         height: 20,
                                         child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
                                       )
-                                    : const Text('Login', style: TextStyle(fontSize: 16)),
+                                    : const Text('Login'),
                               ),
                             ),
-
                             const SizedBox(height: 12),
                             const Text('-- Sign in with --'),
-
                             const SizedBox(height: 12),
                             SocialButtons(onGoogleTap: _onGoogleTap, onAppleTap: _onAppleTap),
-
                             const SizedBox(height: 12),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -188,10 +170,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _onGoogleTap() {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Google sign-in (demo)')));
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Google sign-in (demo)')),
+    );
   }
 
   void _onAppleTap() {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Apple sign-in (demo)')));
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Apple sign-in (demo)')),
+    );
   }
 }

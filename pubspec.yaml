@@ -34,6 +34,8 @@ flutter:
     - assets/image/cowboy_cookie.png
     - assets/image/matcha_cookie.png
     - assets/image/bruno_donut.png
+    - assets/image/profile.jpg
+    
     # atau jika Anda ingin mendaftarkan seluruh folder:
     - assets/image/
 

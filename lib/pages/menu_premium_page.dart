@@ -20,7 +20,7 @@ class Product {
 }
 
 class MenuPremiumPage extends StatefulWidget {
-  static const routeName = '/menu-premium';
+  static const routeName = '/main';
   const MenuPremiumPage({super.key});
 
   @override
@@ -76,7 +76,7 @@ class _MenuPremiumPageState extends State<MenuPremiumPage> {
     ),
   ];
 
-  String _search = '';
+  final String _search = '';
   String _selectedCategory = 'Semua';
 
   @override
@@ -97,6 +97,7 @@ class _MenuPremiumPageState extends State<MenuPremiumPage> {
         backgroundColor: const Color(0xFF4E2F28),
         elevation: 0,
         title: const Text('Menu — Bakery Premium'),
+        foregroundColor: const Color(0xFFFFFBF8),
         centerTitle: true,
         actions: [
           IconButton(
@@ -206,10 +207,8 @@ class _MenuPremiumPageState extends State<MenuPremiumPage> {
                             // gambar
                             Image.asset(
                                 p.image,
-                      
-                               
                                 fit: BoxFit.cover,
-                            
+
                               ),
 
                             // teks & tombol
