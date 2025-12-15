@@ -20,7 +20,7 @@ class Product {
 }
 
 class MenuPremiumPage extends StatefulWidget {
-  static const routeName = '/menu-premium';
+  static const routeName = '/main';
   const MenuPremiumPage({super.key});
 
   @override

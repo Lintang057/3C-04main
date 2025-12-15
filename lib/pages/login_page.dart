@@ -31,7 +31,6 @@ class _LoginPageState extends State<LoginPage> {
     setState(() => _loading = true);
     await Future.delayed(const Duration(milliseconds: 600));
     setState(() => _loading = false);
-
     if (!mounted) return;
 
     Navigator.pushReplacementNamed(context, '/main');
